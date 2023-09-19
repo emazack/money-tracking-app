@@ -1,27 +1,47 @@
 (function () {
-    var wallet; 
-    
-    function getOperation(params) {
-        return wallet.getOperation();
+    let wallet;
+
+    function getOperation() {
+        try {
+            return wallet.getOperation();
+        } catch (error) {
+            console.error(e);
+        }
     }
 
-    function findOperation(params) {
-
+    function findOperation(val) {
+        try {
+            return wallet.findOperation(val)
+        } catch (error) {
+            console.error(e);
+        }
     }
 
-    function getBalance(params) {
-        return wallet.getBalance();
+    function getBalance() {
+        try {
+            return wallet.getBalance();
+        } catch (error) {
+            console.error(e);
+        }
     }
 
-    function removeOperation(params) {
-
+    function removeOperation(id) {
+        try {
+            wallet.removeOperation(id);
+        } catch (e) {
+            console.error(e);
+        }
     }
 
-    function addOperation(params) {
-
+    function addOperation(op) {
+        try {
+            wallet.addOperation(op)
+        } catch (error) {
+            console.error(e);
+        }
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         wallet = new Wallet();
     })
 })();

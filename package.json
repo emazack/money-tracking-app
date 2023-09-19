@@ -1,0 +1,15 @@
+{
+  "name": "money-tracking-app",
+  "version": "0.1.0",
+  "description": "Budget app to manage money (unit test)",
+  "main": "src/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "budget",
+    "money"
+  ],
+  "author": "emazack",
+  "license": "ISC"
+}
