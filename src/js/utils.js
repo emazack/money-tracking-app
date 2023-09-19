@@ -1,3 +1,5 @@
+const Wallet = require("./models/Wallet")
+
 function findIndex(list, cb) {
     for (let i = 0; i < list.length; i++) {
         if (cb(list[i])) {
@@ -19,5 +21,11 @@ function getWallet() {
 }
 
 function isValidOperation(op) {
-    return op && op.description && op.amount > 0 && typeof OpType[op.type] !== "undefined"
+    return op && op.description && parseFloat(op.amount) > 0 && typeof Wallet.OpType[op.type] !== "undefined"
+}
+
+module.exports = {
+    findIndex: findIndex,
+    getWallet: getWallet,
+    isValidOperation: isValidOperation
 }

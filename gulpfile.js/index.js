@@ -1,9 +1,16 @@
-const gulp = require("gulp")
-const series = gulp.series;
-const compileIndex = require("./viewTasks.js").compileIndex
+const gulp = require('gulp');
+const del = require('del');
+const viewTasks = require('./viewTasks');
+const jsTasks = require('./jsTasks');
+const paths = require('./paths');
+const serve = require('./serveTasks');
 
-const dev = series(compileIndex, /* server, watchHtml */ )
+const clean = function(cb) {
+    del.sync(paths.getDistFolder(), { force: true });
+    cb();
+}
+const build = gulp.series(clean, viewTasks.compileIndex, jsTasks.createJSBundle, jsTasks.watchJS, serve);
 
 module.exports = {
-    dev: dev
+    build: build,
 }
